@@ -1,0 +1,34 @@
+<h2>Змінити існуючого користувача</h2>
+<div class="col-lg-6">
+    <div>
+        <form>
+            <mat-form-field>
+                <input matInput placeholder="Ім'я" type="text" [(ngModel)]="userObj.userName" name="userName">
+            </mat-form-field>
+
+            <mat-form-field appearance="standard">
+                <input matInput placeholder="Призвище" [(ngModel)]="userObj.userSurname" name="userSurname">
+            </mat-form-field>
+            <mat-form-field appearance="standard">
+                <input matInput placeholder="По баттькові" [(ngModel)]="userObj.userPatronymic" name="userPatronymic">
+            </mat-form-field>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Здібності</mat-label>
+                <textarea matInput [(ngModel)]="userObj.userSkills" name="userSkills"></textarea>
+            </mat-form-field>
+
+            <mat-radio-group aria-label="Select an option" [(ngModel)]="userObj.userGender" [ngModelOptions]="{standalone: true}">
+                <mat-radio-button name="1" value="boy">Чол</mat-radio-button>
+                <mat-radio-button name="2" value="girl">Жін</mat-radio-button>
+            </mat-radio-group>
+
+            <mat-form-field appearance="fill">
+                <mat-label>Дата народження</mat-label>
+                <input matInput name="userBirthDate" [(ngModel)]="userObj.userBirthDate">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
+            <button mat-raised-button type="submit" (click)="updateUser()">Змінити інфу</button>
+        </form>
+    </div>
